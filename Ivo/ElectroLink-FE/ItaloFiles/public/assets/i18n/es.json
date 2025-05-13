@@ -1,0 +1,9 @@
+{
+  "app": {
+    "title": "Open Location Data"
+  },
+  "footer": {
+    "rights": "Copyright © 2025 Open Location Data. All rights reserved.",
+    "developedBy": "Developed by {{ name }} ({{ code }})"
+  }
+}

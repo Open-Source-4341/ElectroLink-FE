@@ -1,0 +1,45 @@
+<div class="inventory-container">
+  <!-- Header -->
+  <div class="inventory-header">
+    <h2>Servicios y Componentes Asociados</h2>
+    <button mat-raised-button color="primary" [routerLink]="['/inventory/create']">
+      Agregar Servicio
+    </button>
+  </div>
+
+  <!-- Lista de servicios -->
+  <div class="inventory-list">
+    <mat-card *ngFor="let service of services" class="inventory-card">
+      <mat-card-header>
+        <mat-card-title>{{ service.name }}</mat-card-title>
+        <mat-card-subtitle>{{ service.category }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Descripción:</strong> {{ service.description }}</p>
+        <p><strong>Precio base:</strong> S/ {{ service.basePrice }}</p>
+        <p><strong>Duración estimada:</strong> {{ service.estimatedDuration }} minutos</p>
+        <p><strong>Incluye:</strong></p>
+        <ul>
+          <li *ngFor="let inc of service.inclusions">{{ inc }}</li>
+        </ul>
+
+        <h4>Componentes utilizados:</h4>
+        <ul>
+          <li *ngFor="let comp of service.associatedComponents">
+            {{ comp.name }} ({{ comp.model }}) - {{ comp.status }}
+          </li>
+        </ul>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" [routerLink]="['/inventory/edit', service.id]">
+          Editar
+        </button>
+        <button mat-stroked-button color="warn" (click)="onDelete(service.id)">
+          Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

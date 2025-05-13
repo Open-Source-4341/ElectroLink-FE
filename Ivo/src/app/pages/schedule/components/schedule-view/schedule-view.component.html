@@ -1,0 +1,43 @@
+<div class="schedule-container">
+  <!-- Header -->
+  <div class="schedule-header">
+    <h2>Agenda de Servicios</h2>
+    <button mat-raised-button color="primary" [routerLink]="['/schedule/create']">
+      Agregar Tarea
+    </button>
+
+  </div>
+
+  <!-- Lista de servicios agendados -->
+  <div class="schedule-list">
+    <mat-card *ngFor="let item of schedules" class="schedule-card">
+      <mat-card-title>{{ item.service.name }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ item.date | date: 'fullDate' }} - {{ item.date | date: 'shortTime' }}
+      </mat-card-subtitle>
+
+      <mat-card-content>
+        <p><strong>Cliente:</strong> {{ item.client.firstName }} {{ item.client.lastName }}</p>
+        <p><strong>Teléfono:</strong> {{ item.client.phoneNumber }}</p>
+        <p><strong>Descripción:</strong> {{ item.service.description }}</p>
+
+        <!--  <h4>Componentes Utilizados:</h4>-->
+         <!--   <ul>
+           <li *ngFor="let comp of item.componentsUsed">
+             {{ comp.name }} ({{ comp.model }}) - {{ comp.status }}
+           </li>
+         </ul>-->
+      </mat-card-content>
+
+      <!-- 👉 Botones de acción -->
+      <div class="card-actions">
+        <button mat-stroked-button color="accent" [routerLink]="['/schedule/edit', item.id]">
+          Editar
+        </button>
+        <button mat-stroked-button color="warn" (click)="onDelete(item.id)">
+          Eliminar
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,300 @@
+{
+  "profile": {
+    "userId": 1,
+    "companyName": "Proveedor SAC",
+    "taxID": 123456789,
+    "companyAddress": "Av. Industrial 123",
+    "description": "10 años en el mercado. Especializado en instalaciones y mantenimiento eléctrico.",
+    "certifications": [
+      "Certificación ",
+      "Certificación "
+    ],
+    "rating": 4.7,
+    "reviewsCount": 12,
+    "reviews": [
+      {
+        "user": "Laura R",
+        "date": "hace 2 semanas",
+        "comment": "Excelente trabajo, muy profesional"
+      },
+      {
+        "user": "Miguel R",
+        "date": "hace 1 mes",
+        "comment": "Muy satisfecho con el servicio. Altamente Recomendado"
+      }
+    ]
+  },
+  "schedules": [
+    {
+      "id": 1,
+      "date": "2025-05-20T10:00:00Z",
+      "client": {
+        "userID": 101,
+        "email": "laura.rivera@example.com",
+        "password": "1234",
+        "phoneNumber": "+51987654321",
+        "firstName": "Laura",
+        "lastName": "Rivera",
+        "registrationDate": "2024-01-01T08:30:00Z",
+        "isVerified": true,
+        "type": "client"
+      },
+      "service": {
+        "id": 201,
+        "name": "Instalación de panel solar",
+        "description": "Instalación completa de sistema fotovoltaico",
+        "basePrice": 2500,
+        "estimatedDuration": 5,
+        "inclusions": [
+          "Paneles solares",
+          "Cableado",
+          "Configuración"
+        ],
+        "category": "Energía Renovable"
+      },
+      "componentsUsed": [
+        {
+          "componentID": 301,
+          "name": "Panel Solar QCell",
+          "model": "Q.PEAK DUO-G9",
+          "manufacturer": "QCells",
+          "installationDate": "2024-11-10T09:00:00Z",
+          "lastMaintenanceDate": "2025-04-15T11:00:00Z",
+          "status": "Operational"
+        },
+        {
+          "componentID": 302,
+          "name": "Inversor Fronius",
+          "model": "Primo 3.0-1",
+          "manufacturer": "Fronius",
+          "installationDate": "2024-11-10T10:00:00Z",
+          "lastMaintenanceDate": "2025-04-10T10:30:00Z",
+          "status": "Operational"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2025-06-03T09:00:00Z",
+      "client": {
+        "userID": 102,
+        "email": "user2@example.com",
+        "password": "password",
+        "phoneNumber": "+51987654302",
+        "firstName": "Nombre2",
+        "lastName": "Apellido2",
+        "registrationDate": "2024-02-01T08:00:00Z",
+        "isVerified": true,
+        "type": "client"
+      },
+      "service": {
+        "id": 202,
+        "name": "Servicio Eléctrico 2",
+        "description": "Descripción del servicio eléctrico 2",
+        "basePrice": 1700,
+        "estimatedDuration": 4,
+        "inclusions": [
+          "Inspección",
+          "Mano de obra",
+          "Garantía"
+        ],
+        "category": "Instalación"
+      },
+      "componentsUsed": [
+        {
+          "componentID": 302,
+          "name": "Componente 2",
+          "model": "Modelo 2",
+          "manufacturer": "Marca 2",
+          "installationDate": "2025-01-15T10:00:00Z",
+          "lastMaintenanceDate": "2025-04-20T10:00:00Z",
+          "status": "Operational"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2025-06-04T09:00:00Z",
+      "client": {
+        "userID": 103,
+        "email": "user3@example.com",
+        "password": "password",
+        "phoneNumber": "+51987654303",
+        "firstName": "Nombre3",
+        "lastName": "Apellido3",
+        "registrationDate": "2024-02-01T08:00:00Z",
+        "isVerified": true,
+        "type": "client"
+      },
+      "service": {
+        "id": 203,
+        "name": "Servicio Eléctrico 3",
+        "description": "Descripción del servicio eléctrico 3",
+        "basePrice": 1800,
+        "estimatedDuration": 5,
+        "inclusions": [
+          "Inspección",
+          "Mano de obra",
+          "Garantía"
+        ],
+        "category": "Instalación"
+      },
+      "componentsUsed": [
+        {
+          "componentID": 303,
+          "name": "Componente 3",
+          "model": "Modelo 3",
+          "manufacturer": "Marca 3",
+          "installationDate": "2025-01-15T10:00:00Z",
+          "lastMaintenanceDate": "2025-04-20T10:00:00Z",
+          "status": "Operational"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": 4,
+      "name": "Instalación de enchufes inteligentes",
+      "description": "Instalación y configuración de enchufes con control por app",
+      "basePrice": 150,
+      "estimatedDuration": 90,
+      "inclusions": [
+        "Revisión del sistema eléctrico",
+        "Instalación del enchufe inteligente",
+        "Configuración con la app móvil"
+      ],
+      "category": "Automatización",
+      "associatedComponents": [
+        {
+          "componentID": 7,
+          "name": "Enchufe inteligente WiFi",
+          "model": "ESP-WF01",
+          "manufacturer": "TP-Link",
+          "installationDate": "2025-05-01T10:00:00Z",
+          "lastMaintenanceDate": "2025-05-01T10:00:00Z",
+          "status": "ACTIVE"
+        },
+        {
+          "componentID": 8,
+          "name": "Adaptador para instalación",
+          "model": "ADAPT-X2",
+          "manufacturer": "Indeco",
+          "installationDate": "2025-05-01T10:00:00Z",
+          "lastMaintenanceDate": "2025-05-01T10:00:00Z",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": 1747109284046,
+      "name": "Mantenimiento de Luz",
+      "description": "\nMantenimiento de Luz 123",
+      "basePrice": 30,
+      "estimatedDuration": 360,
+      "inclusions": [
+        "123"
+      ],
+      "category": "Mantenimiento",
+      "associatedComponents": [
+        {
+          "componentID": 0,
+          "name": "Repuesto 1",
+          "model": "Modelo 1",
+          "manufacturer": "Fabricante 1",
+          "installationDate": "2025-05-28",
+          "lastMaintenanceDate": "2023-05-28",
+          "status": "Nuevo"
+        }
+      ]
+    },
+    {
+      "id": 1747110085989,
+      "name": "Servicio 1",
+      "description": "Servicio 1",
+      "basePrice": 123,
+      "estimatedDuration": 120,
+      "inclusions": [
+        "Servicio 1"
+      ],
+      "category": "Servicio 1",
+      "associatedComponents": [
+        {
+          "componentID": 0,
+          "name": "Servicio 1",
+          "model": "Servicio 1",
+          "manufacturer": "Servicio 1",
+          "installationDate": "2025-05-25",
+          "lastMaintenanceDate": "2024-05-25",
+          "status": "Nuevo"
+        }
+      ]
+    },
+    {
+      "id": 1747110308011,
+      "name": "aa",
+      "description": "123",
+      "basePrice": 123,
+      "estimatedDuration": 123,
+      "inclusions": [
+        "qwrqw"
+      ],
+      "category": "wqrqw",
+      "associatedComponents": [
+        {
+          "componentID": 0,
+          "name": "qwrwq",
+          "model": "wrqrwq",
+          "manufacturer": "rqwrwq",
+          "installationDate": "2025-05-24",
+          "lastMaintenanceDate": "2024-05-24",
+          "status": "afsafs"
+        }
+      ]
+    },
+    {
+      "id": 1747110308012,
+      "name": "eqrqw",
+      "description": "wqrqwr",
+      "basePrice": 123,
+      "estimatedDuration": 123,
+      "inclusions": [
+        "qwrqwr"
+      ],
+      "category": "qwrwq",
+      "associatedComponents": [
+        {
+          "componentID": 0,
+          "name": "qwrqwr",
+          "model": "qwrqw",
+          "manufacturer": "qrwwq",
+          "installationDate": "2025-04-25",
+          "lastMaintenanceDate": "2024-05-24",
+          "status": "afasa"
+        }
+      ]
+    },
+    {
+      "id": 1747111044947,
+      "name": "sfasfa",
+      "description": "afasfs",
+      "basePrice": 123,
+      "estimatedDuration": 123,
+      "inclusions": [
+        "wqrwqr"
+      ],
+      "category": "wqrqwr",
+      "associatedComponents": [
+        {
+          "componentID": 0,
+          "name": "wrqrqw",
+          "model": "rwqrwq",
+          "manufacturer": "rqwrq",
+          "installationDate": "2025-05-28",
+          "lastMaintenanceDate": "2024-04-13",
+          "status": "saawrwrwq"
+        }
+      ]
+    }
+  ]
+}

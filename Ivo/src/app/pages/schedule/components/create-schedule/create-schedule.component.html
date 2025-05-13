@@ -1,0 +1,37 @@
+<div class="form-container">
+  <h2>Registrar Nueva Tarea</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Cliente*</mat-label>
+    <input matInput [(ngModel)]="formData.clientName" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Teléfono del cliente</mat-label>
+    <input matInput [(ngModel)]="formData.clientPhone">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Servicio*</mat-label>
+    <input matInput [(ngModel)]="formData.serviceName" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descripción del servicio</mat-label>
+    <textarea matInput [(ngModel)]="formData.serviceDescription"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha*</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="formData.date" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Hora*</mat-label>
+    <input matInput type="time" [(ngModel)]="formData.time" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onSubmit()">Guardar</button>
+</div>

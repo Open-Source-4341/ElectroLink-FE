@@ -1,0 +1,79 @@
+<mat-card class="form-card">
+  <h2>Agregar nuevo servicio</h2>
+
+  <!-- Nombre del servicio -->
+  <mat-form-field class="full-width">
+    <mat-label>Nombre del servicio</mat-label>
+    <input matInput [(ngModel)]="service.name" required />
+  </mat-form-field>
+
+  <!-- Descripción -->
+  <mat-form-field class="full-width">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput [(ngModel)]="service.description"></textarea>
+  </mat-form-field>
+
+  <!-- Precio base -->
+  <mat-form-field class="full-width">
+    <mat-label>Precio base</mat-label>
+    <input matInput type="number" [(ngModel)]="service.basePrice" />
+  </mat-form-field>
+
+  <!-- Duración estimada -->
+  <mat-form-field class="full-width">
+    <mat-label>Duración estimada (minutos)</mat-label>
+    <input matInput type="number" [(ngModel)]="service.estimatedDuration" />
+  </mat-form-field>
+
+  <!-- Categoría -->
+  <mat-form-field class="full-width">
+    <mat-label>Categoría</mat-label>
+    <input matInput [(ngModel)]="service.category" />
+  </mat-form-field>
+
+  <!-- Inclusiones -->
+  <h4>Inclusiones</h4>
+  <div class="row">
+    <input [(ngModel)]="newInclusion" placeholder="Agregar inclusión" />
+    <button mat-raised-button color="primary" (click)="addInclusion()">+</button>
+  </div>
+  <ul>
+    <li *ngFor="let inc of service.inclusions">{{ inc }}</li>
+  </ul>
+
+  <!-- Componentes -->
+  <h4>Componentes eléctricos asociados</h4>
+  <mat-form-field class="full-width">
+    <mat-label>Nombre del componente</mat-label>
+    <input matInput [(ngModel)]="newComponent.name" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Modelo</mat-label>
+    <input matInput [(ngModel)]="newComponent.model" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Fabricante</mat-label>
+    <input matInput [(ngModel)]="newComponent.manufacturer" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Fecha de instalación</mat-label>
+    <input matInput type="date" [(ngModel)]="newComponent.installationDate" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Último mantenimiento</mat-label>
+    <input matInput type="date" [(ngModel)]="newComponent.lastMaintenanceDate" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Estado</mat-label>
+    <input matInput [(ngModel)]="newComponent.status" />
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="addComponent()">Agregar componente</button>
+
+  <ul>
+    <li *ngFor="let c of service.associatedComponents">
+      {{ c.name }} - {{ c.model }}
+    </li>
+  </ul>
+
+  <button mat-raised-button color="primary" (click)="onSubmit()">Guardar Servicio</button>
+</mat-card>

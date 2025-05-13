@@ -1,0 +1,55 @@
+<div class="profile-container">
+  <!-- Sección superior -->
+  <div class="profile-header">
+    <div class="profile-info">
+      <img src="" alt="Logo empresa" class="profile-logo" />
+      <div class="profile-text">
+        <h2>{{ profile.companyName }}</h2>
+        <div class="label">Empresa proveedora</div>
+        <div class="description">10 años en el mercado. Especializado en instalaciones y mantenimiento eléctrico.</div>
+        <div>RUC: {{ profile.taxID }}</div>
+        <div>Dirección: {{ profile.companyAddress }}</div>
+      </div>
+    </div>
+    <div class="profile-actions">
+      <button mat-stroked-button color="primary">Editar Perfil</button>
+      <button mat-stroked-button color="warn">Cerrar sesión</button>
+    </div>
+  </div>
+
+
+  <!-- Separador visual -->
+  <div class="profile-divider"></div>
+
+  <!-- Sección inferior: certificaciones y reseñas -->
+  <section class="profile-details">
+    <!-- Certificaciones -->
+    <div class="certifications">
+      <h3>Certificaciones(cambiar dbjson con el diagrama de entidad)</h3>
+      <ul>
+        <li *ngFor="let cert of profile.certifications">
+          <mat-icon>description</mat-icon>
+          {{ cert }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Reseñas -->
+    <div class="reviews">
+      <h3>Reseñas y Calificaciones</h3>
+      <div class="rating">
+        <span class="score">{{ profile.rating }}</span>
+        <mat-icon color="warn">star</mat-icon>
+        <mat-icon color="warn">star</mat-icon>
+        <mat-icon color="warn">star</mat-icon>
+        <mat-icon color="warn">star</mat-icon>
+        <mat-icon color="warn">star_half</mat-icon>
+        <span class="count">({{ profile.reviewsCount }})</span>
+      </div>
+      <div class="review" *ngFor="let r of profile.reviews">
+        <p><strong>{{ r.user }}</strong> - {{ r.date }}</p>
+        <p>{{ r.comment }}</p>
+      </div>
+    </div>
+  </section>
+</div>

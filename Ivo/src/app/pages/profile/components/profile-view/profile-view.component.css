@@ -1,0 +1,121 @@
+.profile-container {
+  padding: 24px;
+  background-color: #E8EEF7;
+  min-height: 100vh;
+}
+
+/* ───── Sección superior ───── */
+.profile-header {
+  background-color: #F1F5F9;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-logo {
+  width: 120px;
+  height: 120px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.profile-text h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.label {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.description {
+  margin: 8px 0;
+  color: #444;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+
+/* ───── Acciones ───── */
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ───── Separador ───── */
+.profile-divider {
+  height: 50px;
+  background-color: #043873;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+
+/* ───── Sección inferior ───── */
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.certifications, .reviews {
+  background-color: #E5E9EE;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.certifications h3,
+.reviews h3 {
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #043873;
+}
+
+.certifications ul {
+  list-style: none;
+  padding: 0;
+}
+
+.certifications li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.rating .score {
+  font-weight: bold;
+}
+
+.rating .count {
+  color: #777;
+}
+
+.review p {
+  margin: 0;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
