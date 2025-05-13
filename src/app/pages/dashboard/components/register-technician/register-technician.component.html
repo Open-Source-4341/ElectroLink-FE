@@ -1,0 +1,94 @@
+<div class="form-container">
+  <h2>Registrar técnico</h2>
+
+  <form (ngSubmit)="registrar()">
+    <table>
+      <tr>
+        <td><label>Nombre</label></td>
+        <td><input matInput [(ngModel)]="technician.name" name="name" placeholder="Ej. Carlos García" required /></td>
+      </tr>
+      <tr>
+        <td><label>Especialidad</label></td>
+        <td><input matInput [(ngModel)]="technician.specialty" name="specialty" placeholder="Ej. Instalaciones eléctricas" required /></td>
+      </tr>
+      <tr>
+        <td><label>Distrito</label></td>
+        <td><input matInput [(ngModel)]="technician.location" name="location" placeholder="Ej. Surco" required /></td>
+      </tr>
+      <tr>
+        <td><label>Disponibilidad</label></td>
+        <td><input matInput [(ngModel)]="technician.available" name="available" placeholder="Ej. Mañana" required /></td>
+      </tr>
+      <tr>
+        <td><label>IP</label></td>
+        <td><input matInput [(ngModel)]="technician.ip" name="ip" placeholder="Ej. 190.236.15.21" required /></td>
+      </tr>
+      <tr>
+        <td><label>Latitud</label></td>
+        <td><input matInput type="number" step="any" [(ngModel)]="technician.latitude" name="latitude" placeholder="Ej. -12.0464" required /></td>
+      </tr>
+      <tr>
+        <td><label>Longitud</label></td>
+        <td><input matInput type="number" step="any" [(ngModel)]="technician.longitude" name="longitude" placeholder="Ej. -77.0428" required /></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <button mat-flat-button color="primary" type="submit">Registrar técnico</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div class="table-container" *ngIf="technicians.length > 0">
+  <h2>Lista de Técnicos</h2>
+
+  <table mat-table [dataSource]="technicians" class="mat-elevation-z2">
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let tech; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="specialty">
+      <th mat-header-cell *matHeaderCellDef>Especialidad</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.specialty }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef>Distrito</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.location }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ip">
+      <th mat-header-cell *matHeaderCellDef>IP</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.ip }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="latitude">
+      <th mat-header-cell *matHeaderCellDef>Latitud</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.latitude }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="longitude">
+      <th mat-header-cell *matHeaderCellDef>Longitud</th>
+      <td mat-cell *matCellDef="let tech">{{ tech.longitude }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let tech">
+        <button mat-icon-button color="warn" (click)="eliminarTecnico(tech.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

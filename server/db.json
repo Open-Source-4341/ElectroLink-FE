@@ -1,0 +1,36 @@
+{
+  "technicians": [
+    {
+      "id": 3,
+      "name": "italo",
+      "specialty": "Inspección eléctrica\t",
+      "distance": "",
+      "rating": 0,
+      "available": "Mañana",
+      "location": "Chosica",
+      "date": "",
+      "ip": "186.160.90.13",
+      "latitude": -11.935,
+      "longitude": -76.695,
+      "price": 0,
+      "duration": "",
+      "paymentMethod": ""
+    },
+    {
+      "id": 4,
+      "name": "Leandro",
+      "specialty": "Inspección eléctrica\t",
+      "distance": "",
+      "rating": 0,
+      "available": "Hoy",
+      "location": "Chosica",
+      "date": "",
+      "ip": "186.160.90.13",
+      "latitude": -11.935,
+      "longitude": -76.695,
+      "price": 0,
+      "duration": "",
+      "paymentMethod": ""
+    }
+  ]
+}
