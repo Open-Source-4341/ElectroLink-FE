@@ -1,0 +1,10 @@
+<div *ngIf="technician">
+  <h2>{{ technician.name }}</h2>
+  <p><strong>Especialidad:</strong> {{ technician.specialty }}</p>
+  <p><strong>Disponible:</strong> {{ technician.available }}</p>
+  <p><strong>Distrito:</strong> {{ technician.location }}</p>
+  <p><strong>Estrellas:</strong> ⭐ {{ technician.rating }}</p>
+  <p><strong>Distancia:</strong> {{ technician.distance }}</p>
+  <p><strong>Fecha:</strong> {{ technician.date }}</p>
+  <button routerLink="/technician-search">⬅ Volver</button>
+</div>

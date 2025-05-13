@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "service-management-bc-italo",
+    "firebase use --add": "daos-italo-learning-center"
+  },
+  "targets": {},
+  "etags": {}
+}
