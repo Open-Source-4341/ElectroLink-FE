@@ -1,0 +1,116 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>ElectroLink</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item routerLink="/tu-empresa" routerLinkActive="active">
+        <mat-icon>business</mat-icon> Tu empresa
+      </mat-list-item>
+
+      <mat-list-item routerLink="/registro-tecnico" routerLinkActive="active">
+        <mat-icon>event</mat-icon> Agenda
+      </mat-list-item>
+
+      <mat-list-item routerLink="/inventario" routerLinkActive="active">
+        <mat-icon>inventory</mat-icon> Inventario
+      </mat-list-item>
+
+      <mat-list-item routerLink="/historial" routerLinkActive="active">
+        <mat-icon>history</mat-icon> Historial
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main-content">
+      <div class="columns-container">
+
+        <!-- 🌍 Columna izquierda -->
+        <div class="left-column">
+          <h2>Búsqueda de servicio eléctrico</h2>
+
+          <div class="filters">
+            <input matInput [(ngModel)]="searchLocation" placeholder="Ej: Barranco" />
+            <button mat-raised-button color="primary" (click)="filtrarPorDistrito()">Buscar</button>
+          </div>
+
+          <div class="card" *ngFor="let tech of filteredTechnicians">
+            <div class="card-body">
+              <div class="card-logo">
+                <img [src]="'https://ui-avatars.com/api/?name=' + tech.name + '&background=0D8ABC&color=fff'" alt="{{ tech.name }}">
+              </div>
+              <div class="card-content">
+                <h3>{{ tech.name }}</h3>
+                <p>{{ tech.specialty }} - {{ tech.distance }}</p>
+                <p>Disponible: {{ tech.available }}</p>
+                <p>Distrito: {{ tech.location }}</p>
+                <p>⭐ {{ tech.rating }}</p>
+                <a [routerLink]="['/technician', tech.id]">
+                  <button mat-stroked-button color="accent">Ver más</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 📍 Columna derecha -->
+        <div class="right-column">
+          <h2>Resultado de ubicación por IP</h2>
+
+          <div class="filters">
+            <input matInput [(ngModel)]="ipToSearch" placeholder="Ingrese IP manualmente" />
+            <button mat-raised-button color="accent" (click)="obtenerUbicacionPorIP()">Buscar</button>
+          </div>
+
+          <div class="ip-info" *ngIf="locationData">
+            <p><strong>IP:</strong> {{ locationData.ip }}</p>
+            <p><strong>País:</strong> {{ locationData.country }}</p>
+            <p><strong>Región:</strong> {{ locationData.region }}</p>
+            <p><strong>Ciudad:</strong> {{ locationData.city }}</p>
+
+            <!-- Mapa interactivo -->
+            <div id="leaflet-map" *ngIf="locationData.latitude && locationData.longitude"></div>
+
+            <!-- Botón para abrir Google Maps -->
+            <div style="text-align: center; margin-top: 12px;">
+              <a
+                mat-flat-button
+                color="primary"
+                target="_blank"
+                [href]="'https://www.google.com/maps?q=' + locationData.latitude + ',' + locationData.longitude"
+              >
+                Ver en Google Maps
+              </a>
+            </div>
+
+            <h3 style="margin-top: 20px;">Técnicos encontrados:</h3>
+
+            <div class="card" *ngFor="let tech of filteredTechnicians">
+              <div class="card-body">
+                <div class="card-logo">
+                  <img [src]="'https://ui-avatars.com/api/?name=' + tech.name + '&background=FF7043&color=fff'" alt="{{ tech.name }}">
+                </div>
+                <div class="card-content">
+                  <h4>{{ tech.name }}</h4>
+                  <p>{{ tech.specialty }} - {{ tech.distance }}</p>
+                  <p>Disponible: {{ tech.available }}</p>
+                  <p>Distrito: {{ tech.location }}</p>
+                  <p>⭐ {{ tech.rating }}</p>
+                  <a [routerLink]="['/technician', tech.id]">
+                    <button mat-stroked-button color="accent">Ver más</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

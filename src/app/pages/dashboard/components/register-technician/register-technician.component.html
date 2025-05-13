@@ -1,0 +1,44 @@
+<div class="form-container">
+  <h2>Registrar técnico</h2>
+
+  <form (ngSubmit)="registrar()">
+    <table>
+      <tr>
+        <td><label>Nombre</label></td>
+        <td><input matInput [(ngModel)]="technician.name" name="name" placeholder="Ej. Carlos García" required /></td>
+      </tr>
+      <tr>
+        <td><label>Especialidad</label></td>
+        <td><input matInput [(ngModel)]="technician.specialty" name="specialty" placeholder="Ej. Instalaciones eléctricas" required /></td>
+      </tr>
+      <tr>
+        <td><label>Distrito</label></td>
+        <td><input matInput [(ngModel)]="technician.location" name="location" placeholder="Ej. Surco" required /></td>
+      </tr>
+      <tr>
+        <td><label>Disponibilidad</label></td>
+        <td><input matInput [(ngModel)]="technician.available" name="available" placeholder="Ej. Mañana" required /></td>
+      </tr>
+      <tr>
+        <td><label>IP</label></td>
+        <td><input matInput [(ngModel)]="technician.ip" name="ip" placeholder="Ej. 190.236.15.21" required /></td>
+      </tr>
+      <tr>
+        <td><label>Latitud</label></td>
+        <td><input matInput type="number" step="any" [(ngModel)]="technician.latitude" name="latitude" placeholder="Ej. -12.0464" required /></td>
+      </tr>
+      <tr>
+        <td><label>Longitud</label></td>
+        <td><input matInput type="number" step="any" [(ngModel)]="technician.longitude" name="longitude" placeholder="Ej. -77.0428" required /></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <button mat-flat-button color="primary" type="submit">Registrar técnico</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div class="table-container" *ngIf="technicians.length > 0">
+  <h2>Lista de Técnicos</h2>

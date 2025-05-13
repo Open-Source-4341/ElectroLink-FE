@@ -1,0 +1,60 @@
+<ng-template #notFound>
+  <div class="card">
+    <h2>⚠ Técnico no encontrado</h2>
+    <p>El proveedor que estás buscando no existe o ha sido eliminado.</p>
+    <button class="back" (click)="goBack()">⬅ Volver</button>
+  </div>
+</ng-template>
+
+<!-- Contenedor principal -->
+<div class="container" [ngClass]="{ 'expanded': hasSelected }" *ngIf="technician as tech; else notFound">
+  <!-- Card del técnico -->
+  <div class="card">
+    <h2>{{ tech.name }}</h2>
+    <p><strong>Especialidad:</strong> {{ tech.specialty }}</p>
+    <p><strong>Disponible:</strong> {{ tech.available }}</p>
+    <p><strong>Distrito:</strong> {{ tech.location }}</p>
+    <p><strong>Estrellas:</strong> ⭐ {{ tech.rating }}</p>
+    <p><strong>Distancia:</strong> {{ tech.distance }}</p>
+    <p><strong>Fecha:</strong> {{ tech.date }}</p>
+
+    <!-- Descripciones (si las hay) -->
+    <div *ngIf="tech.descriptions">
+      <p><strong>Opiniones:</strong></p>
+      <ul>
+        <li *ngFor="let desc of getDescriptions()">"{{ desc }}"</li>
+      </ul>
+    </div>
+
+    <!-- Reseñas y formulario -->
+    <app-review-list [technicianId]="tech.id"></app-review-list>
+    <app-review-form [technicianId]="tech.id" (reviewSubmitted)="handleReviewSubmitted()"></app-review-form>
+
+    <!-- Botones -->
+    <div class="actions">
+      <button class="buy" (click)="buyTechnician()">🛒 Contratar</button>
+      <button class="back" (click)="goBack()">⬅ Volver</button>
+    </div>
+  </div>
+
+  <!-- Resumen de compra -->
+  <div class="summary-group" *ngIf="hasSelected">
+    <div *ngIf="cancelMessage" class="cancel-message">
+      {{ cancelMessage }}
+    </div>
+
+    <div class="summary" *ngFor="let selected of selectedTechnicians">
+      <h3>Resumen de compra</h3>
+      <p><strong>Técnico:</strong> {{ selected.name }}</p>
+      <p><strong>Servicio:</strong> {{ selected.specialty }}</p>
+      <p><strong>Duración estimada:</strong> {{ selected.duration }}</p>
+      <p><strong>Distrito:</strong> {{ selected.location }}</p>
+      <p><strong>Fecha:</strong> {{ selected.date }}</p>
+      <p><strong>Precio estimado:</strong> S/ {{ selected.price }}</p>
+      <p><strong>Método de pago:</strong> {{ selected.paymentMethod }}</p>
+
+      <button class="confirm" (click)="confirmPurchaseTechnician()">✅ Confirmar</button>
+      <button class="cancel" (click)="cancelTechnician(selected)">❌ Cancelar</button>
+    </div>
+  </div>
+</div>
