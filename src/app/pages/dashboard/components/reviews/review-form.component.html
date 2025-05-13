@@ -1,8 +1,0 @@
-<div class="review-form">
-  <h3>✍️ Dejar una reseña</h3>
-  <input [(ngModel)]="review.user" placeholder="Tu nombre" required>
-  <textarea [(ngModel)]="review.comment" placeholder="Escribe tu comentario"></textarea>
-  <label>Puntaje (1-5):</label>
-  <input type="number" [(ngModel)]="review.rating" min="1" max="5" required>
-  <button (click)="submit()">Enviar reseña</button>
-</div>
